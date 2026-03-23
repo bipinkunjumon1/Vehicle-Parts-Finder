@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Admin - Add Vehicle Parts</title>
+
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+margin-top:80px;
+}
+
+.container{
+width:350px;
+margin:auto;
+border:1px solid #ccc;
+padding:20px;
+border-radius:6px;
+}
+
+input{
+width:90%;
+padding:8px;
+margin:8px;
+}
+
+button{
+width:95%;
+padding:10px;
+background:#28a745;
+color:white;
+border:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Admin Panel</h2>
+
+<h3>Add Vehicle Part</h3>
+
+<input type="number" id="id" placeholder="Part ID">
+
+<input type="text" id="partname" placeholder="Part Name">
+
+<input type="text" id="vehicle" placeholder="Vehicle Type">
+
+<input type="number" id="price" placeholder="Price">
+
+<button onclick="addPart()">Add Part</button>
+
+<p id="msg"></p>
+
+</div>
+
+<script>
+
+function addPart(){
+
+let id=document.getElementById("id").value
+let partname=document.getElementById("partname").value
+let vehicle=document.getElementById("vehicle").value
+let price=document.getElementById("price").value
+
+fetch("http://localhost:5186/api/vehicle",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+id:parseInt(id),
+partname:partname,
+vehicle:vehicle,
+price:parseInt(price)
+})
+
+})
+
+.then(res=>res.text())
+.then(data=>{
+document.getElementById("msg").innerText="Part Added Successfully"
+})
+
+}
+
+</script>
+
+</body>
+
+</html>

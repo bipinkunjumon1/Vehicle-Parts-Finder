@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Vehicle Parts</title>
+<link rel="stylesheet" href="parts.css">
+</head>
+
+<body>
+
+<h2>Vehicle Parts</h2>
+
+<input type="text" id="searchText" placeholder="Search Part Name">
+
+<button onclick="searchParts()">Search</button>
+
+<button onclick="loadParts()">Show All</button>
+
+<br><br>
+
+<table>
+
+<thead>
+<tr>
+<th>ID</th>
+<th>Part Name</th>
+<th>Vehicle</th>
+<th>Price</th>
+</tr>
+</thead>
+
+<tbody id="tableBody">
+</tbody>
+
+</table>
+
+<script src="parts.js"></script>
+
+</body>
+</html>
